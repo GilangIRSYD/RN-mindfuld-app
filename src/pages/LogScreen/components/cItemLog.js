@@ -13,12 +13,11 @@ const CItemLog = ({titleLog="Gilang safera",dateLog="10:20:22",startLogTime="10:
           paddingHorizontal: 24,
           marginBottom: 24,
           borderRadius: 10,
-          flexDirection:'row'
         }}>
+          <View style={{flexDirection:'row'}}>
             <View style={{flex:1}}>
-                <Text style={[SylSubHead,{marginBottom:4}]}>{titleLog}</Text>
+                <Text style={[SylSubHead,{marginBottom:4,fontSize:14}]}>{titleLog}</Text>
                 <Text style={[SylText,{marginBottom:12}]}>{dateLog}</Text>
-                <Text style={SylText}>{`Start at ${startLogTime} Until ${endLogTime}`}</Text>
             </View>
             <View style={{alignItems:'center'}}>
                 <Text style={SylText}>Duration</Text>
@@ -27,6 +26,9 @@ const CItemLog = ({titleLog="Gilang safera",dateLog="10:20:22",startLogTime="10:
                     <Text style={[SylText,{color:DarkBackground}]}>{duration}</Text>
                 </View>
             </View>
+          </View>
+          <CMargin />
+          <Text style={SylText}>{`Start at ${startLogTime} Until ${endLogTime}`}</Text>
         </View>
     </TouchableOpacity>
   );

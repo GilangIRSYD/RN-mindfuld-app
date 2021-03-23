@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { SafeAreaView, ScrollView, Text, View } from 'react-native'
 import CAppBar from '../../globalCOmponents/CAppBar'
-import { MindfulnessDesc, ScreenWidth, SylHeadText, SylSafeAreaView, SylSubHead, SylText } from '../../utils/Constant'
+import { AppExplanation, MindfulnessDesc, PrimaryColor, ScreenWidth, SylHeadText, SylSafeAreaView, SylSubHead, SylText } from '../../utils/Constant'
 import IllustrationMindfuld from "../../asssets/images/ilustration_mindfuld.svg";
 import CMargin from '../../globalCOmponents/CMargin';
 
@@ -32,7 +32,7 @@ export class AboutScreen extends Component {
                             </Text>
                         </View>
                         <View>
-                            <Text style={[SylSubHead,{marginTop:64}]}>
+                            <Text style={[SylSubHead,{marginTop:32}]}>
                                 Manfaat Mindfulness
                             </Text>
                             <CMargin/>
@@ -40,6 +40,11 @@ export class AboutScreen extends Component {
                             <Text style={[SylText,{marginBottom:8,marginStart:12}]}># Meredakan rasa sakit</Text>
                             <Text style={[SylText,{marginBottom:8,marginStart:12}]}># Meningkatkan suasana hati</Text>
                             <Text style={[SylText,{marginBottom:8,marginStart:12}]}># Mengurangi rasa kesepian</Text>
+                        </View>
+                        <View>
+                            <Text style={[SylText,{textAlign:'center',marginTop:24, borderColor:PrimaryColor,borderWidth:2, borderRadius:4,padding:12}]}>
+                             {AppExplanation}
+                            </Text>
                         </View>
                     </View>
                 </ScrollView>

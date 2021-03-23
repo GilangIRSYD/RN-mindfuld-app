@@ -7,6 +7,7 @@ import LogScreen from './pages/LogScreen';
 import AboutScreen from './pages/AboutScreen';
 import ReminderScreen from './pages/ReminderScreen';
 import CreateReminderScreen from './pages/CreateReminderScreen';
+import Mindfulness from './pages/MindfulnessScreen';
 
 const Stack = createStackNavigator()
 const Router = () => {
@@ -19,6 +20,7 @@ const Router = () => {
                 <Stack.Screen name={"AboutScreen"} component={AboutScreen}/>       
                 <Stack.Screen name={"ReminderScreen"} component={ReminderScreen}/>       
                 <Stack.Screen name={"CreateReminderScreen"} component={CreateReminderScreen}/>       
+                <Stack.Screen name={"MindfulnessScreen"} component={Mindfulness}/>       
         </Stack.Navigator>
     )
 }

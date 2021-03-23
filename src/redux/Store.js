@@ -10,7 +10,7 @@ import Reducer from "./reducers";
 const configPersist = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ["ReminderReducer"],
+  whitelist: ["ReminderReducer","LogReducer"],
 };
 const reducerPersist = persistReducer(configPersist, Reducer);
 const Store = createStore(reducerPersist, applyMiddleware(thunk));

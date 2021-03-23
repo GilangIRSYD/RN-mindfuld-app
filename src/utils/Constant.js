@@ -26,6 +26,8 @@ export const SylSubHead = {fontFamily:Bold,color:AccentColor,fontSize:18}
 
 //text
 export const MindfulnessDesc = "Mindfulnes adalah cara untuk memusatkan perhatian terhadap apa yang terjadi dengan sadar tanpa adanya penilaian"
+export const MindfulInstruction = "Latihan meditasi ini memerlukan waktu sekitar 10 menit. Persiapkan diri anda dan pastikan memilih tempat yang nyaman dan tenang"
+export const AppExplanation = "Dalam Applikasi ini terdapat panduan untuk melakukan meditasi secara mandiri yang dapat mempermudah anda untuk latihan meditasi mindfulness"
 
 
 
@@ -39,7 +41,8 @@ export const convertTimestamp = (unixTimestamp) => {
     const hour = calendar.getHours();
     const min = calendar.getMinutes();
     const sec = calendar.getSeconds();
-    const times = {date,month,year,hour,min,sec}
+    const day = calendar.getDay()
+    const times = {date,month,year,hour,min,sec,day}
     return times;
 }
 
@@ -50,9 +53,38 @@ export const getCurrentTimestamp = () => {
 
 export const timeFormatted = (timeStamp) => {
     const {hour,min} = convertTimestamp(timeStamp)
-    const hourFormatted = hour < 10 ? `0${hour}` : hour
+    const hourFormatted = hour < 10 ? `0${hour}` : hour > 12 ? hour-12 < 10 ? `0${hour-12}` : hour-12 : hour
     const minFormatted = min < 10 ? `0${min}` : min
     const siklus = hour < 12 ? "AM" : "PM"
 
     return `${hourFormatted } : ${minFormatted} ${siklus}`
+}
+
+export const formatTime = (s) => {  
+    return( s - ( s %= 60 ) ) / 60 + (9 < s ? ':' : ':0') + s ;       
+}
+
+export const durationFormated = (milisecond) => {
+    
+    let msec = milisecond;
+    const hh = Math.floor(msec / 1000 / 60 / 60);
+    msec -= hh * 1000 * 60 * 60;
+    const mm = Math.floor(msec / 1000 / 60)
+    msec -= mm * 1000 * 60;
+    const ss = Math.floor(msec / 1000);
+    msec -= ss * 1000;
+
+    const hourFormatted = hh < 10 ? `0${hh}` : hh
+    const minFormatted = mm < 10 ? `0${mm}` : mm
+    const secFormatted = ss < 10 ? `0${ss}` : ss
+    
+    return `${hourFormatted} : ${minFormatted} : ${secFormatted}`
+}
+
+export const dayFormatted = (unixTimestamp) => {
+    // var options = {  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const calendar = new Date(unixTimestamp);
+
+    return calendar.toLocaleString('id-ID',options)
 }

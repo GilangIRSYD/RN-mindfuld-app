@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { SafeAreaView, ScrollView, Text, View } from 'react-native'
 import CAppBar from '../../globalCOmponents/CAppBar'
 import CMargin from '../../globalCOmponents/CMargin'
-import { Light, SylHeadText, SylSafeAreaView, SylText } from '../../utils/Constant'
+import { Light, SylSafeAreaView, SylText } from '../../utils/Constant'
 import CCardMindfuld from '../MindfulnessScreen/components/cCardMindfuld'
 
 export class MindfulnessListScreen extends Component {
@@ -12,7 +12,7 @@ export class MindfulnessListScreen extends Component {
     }
 
     onSittingPress = () => {
-
+        this.props.navigation.navigate("MindfulnessScreen")
     }
 
     onWalkingPress = () => {
