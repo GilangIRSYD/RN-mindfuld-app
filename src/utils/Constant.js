@@ -29,3 +29,30 @@ export const MindfulnessDesc = "Mindfulnes adalah cara untuk memusatkan perhatia
 
 
 
+// function
+export const convertTimestamp = (unixTimestamp) => {
+    const calendar = new Date(unixTimestamp);
+    const months = ['Januari','Febuari','Maret','April','Mei','Juni','Juli','Agustus','Septempber','Oktober','November','Desember'];
+    const year = calendar.getFullYear();
+    const month = months[calendar.getMonth()];
+    const date = calendar.getDate();
+    const hour = calendar.getHours();
+    const min = calendar.getMinutes();
+    const sec = calendar.getSeconds();
+    const times = {date,month,year,hour,min,sec}
+    return times;
+}
+
+export const getCurrentTimestamp = () => {
+    const date = new Date()
+    return date.getTime()
+}
+
+export const timeFormatted = (timeStamp) => {
+    const {hour,min} = convertTimestamp(timeStamp)
+    const hourFormatted = hour < 10 ? `0${hour}` : hour
+    const minFormatted = min < 10 ? `0${min}` : min
+    const siklus = hour < 12 ? "AM" : "PM"
+
+    return `${hourFormatted } : ${minFormatted} ${siklus}`
+}

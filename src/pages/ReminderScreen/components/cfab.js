@@ -13,12 +13,12 @@ const CFab = ({onFabPress}) => {
         borderRadius: 40,
         backgroundColor: PrimaryColor,
         position: 'absolute',
-        right: 0,
-        bottom: 0,
+        right:0,
+        bottom:0,
         alignItems: 'center',
         justifyContent: 'center',
         marginEnd:24,
-        marginBottom:12
+        marginBottom:24
       }}>
       <View>
         <Ionicons name={'alarm-outline'} color={AccentColor} size={35} />
