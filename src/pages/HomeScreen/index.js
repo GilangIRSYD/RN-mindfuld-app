@@ -34,7 +34,7 @@ export class HomeScreen extends Component {
               }}>
               <CMenuCard
                 image
-                textCard={'Start Mindfulness'}
+                textCard={'Start \nMindfulness'}
                 color={YellowColor}
                 backgroundColor={PrimaryColor}
                 onCardPress={this.onStartMindfulness}

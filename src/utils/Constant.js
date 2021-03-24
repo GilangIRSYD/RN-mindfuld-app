@@ -81,10 +81,15 @@ export const durationFormated = (milisecond) => {
     return `${hourFormatted} : ${minFormatted} : ${secFormatted}`
 }
 
-export const dayFormatted = (unixTimestamp) => {
-    // var options = {  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const calendar = new Date(unixTimestamp);
-
-    return calendar.toLocaleString('id-ID',options)
+export const dayFormatted = (timestamps) => {
+    const {date,month,year} = convertTimestamp(timestamps)
+    return `${date}, ${month} ${year}`
 }
+
+// export const dayFormatted = (unixTimestamp) => {
+//     // var options = {  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+//     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+//     const calendar = new Date(unixTimestamp);
+
+//     return calendar.toLocaleString('id-ID',options)
+// }

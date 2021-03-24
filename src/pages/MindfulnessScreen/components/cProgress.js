@@ -23,7 +23,6 @@ export class CProgress extends TrackPlayer.ProgressComponent {
                         value={this.state.position}
                         onValueChange={onSeeking}
                         maximumTrackTintColor={PrimaryColor}
-                        thumbImage={require("../../../asssets/images/thumb.png")}
                     />
                 </View>
                 <View style={{justifyContent:"space-between",flexDirection:"row",paddingHorizontal:12,marginTop:4}}>

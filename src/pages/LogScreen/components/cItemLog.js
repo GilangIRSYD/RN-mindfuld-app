@@ -3,9 +3,9 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import CMargin from '../../../globalCOmponents/CMargin';
 import {DarkBackground, SecondaryColor, SylHeadText, SylSubHead, SylText, YellowColor} from '../../../utils/Constant';
 
-const CItemLog = ({titleLog="Gilang safera",dateLog="10:20:22",startLogTime="10:11",endLogTime="10:12",duration="30:00:10"}) => {
+const CItemLog = ({titleLog="Gilang safera",dateLog="10:20:22",startLogTime="10:11",endLogTime="10:12",duration="30:00:10",onCardPress}) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onCardPress}>
       <View
         style={{
           backgroundColor: SecondaryColor,

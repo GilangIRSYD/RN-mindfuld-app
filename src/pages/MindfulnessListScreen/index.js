@@ -12,15 +12,15 @@ export class MindfulnessListScreen extends Component {
     }
 
     onSittingPress = () => {
-        this.props.navigation.navigate("MindfulnessScreen")
+        this.props.navigation.navigate("MindfulnessScreen",{type:"MS"})
     }
 
     onWalkingPress = () => {
-        
+        this.props.navigation.navigate("MindfulnessScreen",{type:"MW"})
     }
 
     onEatingPress = () => {
-        
+        this.props.navigation.navigate("MindfulnessScreen",{type:"ME"})
     }
 
     render() {

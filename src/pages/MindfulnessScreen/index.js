@@ -31,14 +31,17 @@ class Mindfulness extends Component {
     }
 
     initMusic = async () => {
+
+        const {type} = await this.props.route.params
+        const mindfuldName = await type === "MS" ? "Mindfuld Sitting" : type === "MW" ? "Mindfuld Walking" : "Mindfuld Eating"
         // Set up the player
         await TrackPlayer.setupPlayer();
     
         // Add a track to the queue
         await TrackPlayer.add({
-            id: 'sitting',
+            id: type,
             url: require('../../asssets/sounds/yarasulallah.mp3'),
-            title: 'Mindfuld Eating',
+            title: mindfuldName,
             artist: 'Keep relax and quiet',
             artwork: require("../../asssets/images/sitting.jpeg")
         });
@@ -62,6 +65,8 @@ class Mindfulness extends Component {
         TrackPlayer.destroy()
     }
     render() {
+        const {type} = this.props.route.params
+        const mindfuldName = type === "MS" ? "Mindfuld Sitting" : type === "MW" ? "Mindfuld Walking" : "Mindfuld Eating"
         return (
             <SafeAreaView style={SylSafeAreaView}>
                 <CAppBar
@@ -75,7 +80,7 @@ class Mindfulness extends Component {
                         <View style={{alignItems:'center', marginTop:12}}>
                             <Image source={require("../../asssets/images/sitting.jpeg")} style={{height:ScreenHeight / 3, resizeMode:"contain",borderRadius:8}} />
                         </View>
-                        <Text style={[{textAlign:'center', marginVertical:12, fontFamily:Light, fontSize:24,color:AccentColor}]}>{"Mindfuld Sitting"}</Text> 
+                        <Text style={[{textAlign:'center', marginVertical:12, fontFamily:Light, fontSize:24,color:AccentColor}]}>{mindfuldName}</Text> 
                         <View style={{flexDirection:'row',justifyContent:'center'}}>
                             <CIconButton
                                 title="PLAY"
@@ -143,7 +148,7 @@ class Mindfulness extends Component {
     onSubmitLog = () => {
         if (this.state.inputName.trim() !== "") {
             const logActivity = {
-                id: `${getCurrentTimestamp()}`,
+                id: getCurrentTimestamp(),
                 title : this.state.inputName,
                 enteranceTime:this.enteranceTime,
                 exitTime:this.exitTime
