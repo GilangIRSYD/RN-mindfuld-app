@@ -34,13 +34,14 @@ class Mindfulness extends Component {
 
         const {type} = await this.props.route.params
         const mindfuldName = await type === "MS" ? "Mindfuld Sitting" : type === "MW" ? "Mindfuld Walking" : "Mindfuld Eating"
+        const sound = type === "MS" ? require('../../asssets/sounds/MS.mpeg') : type === "MW" ? require('../../asssets/sounds/MW.mpeg') : require('../../asssets/sounds/ME.mpeg')
         // Set up the player
         await TrackPlayer.setupPlayer();
     
         // Add a track to the queue
         await TrackPlayer.add({
             id: type,
-            url: require('../../asssets/sounds/yarasulallah.mp3'),
+            url: sound,
             title: mindfuldName,
             artist: 'Keep relax and quiet',
             artwork: require("../../asssets/images/sitting.jpeg")
